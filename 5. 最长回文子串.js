@@ -2,7 +2,7 @@ function longestPalindrome(s) {
     let str = s.split('').reduce((prev, item) => prev + item + '#', '#');
     let id = 0, mx = 0, p = [];
     let newLen = str.length;
-    // p = [x,x] 存的index的回文半径
+    // p = [x,x] 存的index的回文半径,mx 是上一个元素+回文半径
     for (let i = 0; i < newLen; i++) {
         p[i] = mx > i ? Math.min(p[2 * id - i], mx - i) : 1;
         while (str[i + p[i]] === str[i - p[i]] && i - p[i] >= 0 && i + p[i] < newLen) {
