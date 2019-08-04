@@ -4,9 +4,9 @@ let multiply = function (num1, num2) {
     let arr = new Array(m + n).fill(0);
     for (let i = m - 1; i >= 0; i--) {
         for (let j = n - 1; j >= 0; j--) {
-            let mul = (num1[m] - '0') * (num2[n] - '0');
+            let mul = +num1[i] * +num2[j];
             let sum = mul + arr[i + j + 1];
-            arr[i + j] = Math.floor(sum / 10);
+            arr[i + j] += Math.floor(sum / 10);
             arr[i + j + 1] = sum % 10;
         }
     }
@@ -17,3 +17,5 @@ let multiply = function (num1, num2) {
 
     return str ? str : '0';
 };
+
+console.log(multiply('123', '456'));
