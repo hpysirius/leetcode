@@ -1,0 +1,1 @@
+const lengthOfLastWord = s => s.trim('').split(' ').pop().length || 0;
