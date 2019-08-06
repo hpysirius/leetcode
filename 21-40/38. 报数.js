@@ -10,6 +10,7 @@ var countAndSay = function (n) {
             let k = j;
             while (k < s.length && s[k] === s[j]) k++;
             ns += (k - j).toString() + s[j];
+            // 因为j++了，所以j = k - 1
             j = k - 1;
         }
         s = ns;
