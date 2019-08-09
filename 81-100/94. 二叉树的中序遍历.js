@@ -9,6 +9,13 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
+/**
+ * 前序遍历：根结点 ---> 左子树 ---> 右子树
+ * 中序遍历：左子树---> 根结点 ---> 右子树
+ * 后序遍历：左子树 ---> 右子树 ---> 根结点
+ *  
+ * */
+
 var inorderTraversal = function(root) {
     const res = [];
     const stack = [];
