@@ -19,7 +19,7 @@ var searchRange = function (nums, target) {
     l = 0, r = len - 1;
     while(l < r){
         let mid = l + r + 1 >> 1;
-        if(nums[mid] <= target ) l = mid;
+        if(nums[mid] <= target ) l = mid;  
         else r = mid - 1;
     }
     res[1] = l;
