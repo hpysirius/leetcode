@@ -8,8 +8,10 @@ var lengthOfLongestSubstring = function (s) {
     }
     return res;
 };
-
-console.log(lengthOfLongestSubstring("abc23"));
+// 时间复杂度：从n2 变成 O(n)
+// 内层循环红色指针j，红色指针不回头，内层循环最多执行O（n）
+// 两重循环，取决于内层循环的执行效率
+console.log(lengthOfLongestSubstring("abcabcbb"));
 
 /**
         * @param {string} s
