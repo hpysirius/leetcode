@@ -1,9 +1,7 @@
 const permute = nums => {
     const n = nums.length;
     const st = new Array(n).fill(false);
-    const path = [];
-    const ans = [];
-
+    const path = [], ans = [];
     const dfs = (nums, u) => {
         if (u === n) {
             ans.push([...path]);
@@ -19,12 +17,11 @@ const permute = nums => {
             }
         }
     }
-
     dfs(nums, 0);
     return ans;
 }
 
-console.log(permute([1,2,3]));
+console.log(permute([1, 2, 3]));
 
 
 
