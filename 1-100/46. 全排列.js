@@ -1,21 +1,65 @@
-// 插入法
-var permute = function (nums) {
-    const res = [];
-    if (nums.length === 1) {
-        return [nums];
-    } else {
-        let per = permute(nums.slice(1));
-        per.forEach(item => {
-            for (let j = 0; j < item.length + 1; j++) {
-                let temp = item.slice(0, j).concat([nums[0]], item.slice(j));
-                res.push(temp)
-            }
-        });
-        return [...new Set(res)];
-    }
-};
+const permute = nums => {
+    const n = nums.length;
+    const st = new Array(n).fill(false);
+    const path = [];
+    const ans = [];
 
-permute([1]);
+    const dfs = (nums, u) => {
+        if (u === n) {
+            ans.push([...path]);
+            return;
+        }
+        for (let i = 0; i < n; i++) {
+            if (!st[i]) {
+                st[i] = true;
+                path.push(nums[i]);
+                dfs(nums, u + 1);
+                path.pop();
+                st[i] = false;
+            }
+        }
+    }
+
+    dfs(nums, 0);
+    return ans;
+}
+
+console.log(permute([1,2,3]));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 插入法
+// var permute = function (nums) {
+//     const res = [];
+//     if (nums.length === 1) {
+//         return [nums];
+//     } else {
+//         let per = permute(nums.slice(1));
+//         per.forEach(item => {
+//             for (let j = 0; j < item.length + 1; j++) {
+//                 let temp = item.slice(0, j).concat([nums[0]], item.slice(j));
+//                 res.push(temp)
+//             }
+//         });
+//         return [...new Set(res)];
+//     }
+// };
+
+// permute([1]);
 // 回溯法（深度优先遍历 + 状态重置）
 // var permute = function (nums) {
 //     let len = nums.length;
