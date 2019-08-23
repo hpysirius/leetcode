@@ -1,3 +1,9 @@
+// 全排列两种方式
+// 1. 枚举每个位置上放哪个数
+// 2. 枚举每个数放到哪个位置
+
+
+// 1. 枚举每个位置上放哪个数
 const permute = nums => {
     const n = nums.length;
     const st = new Array(n).fill(false);
@@ -20,6 +26,10 @@ const permute = nums => {
     dfs(nums, 0);
     return ans;
 }
+
+
+
+// 2. 枚举每个数放到哪个位置
 
 console.log(permute([1, 2, 3]));
 
