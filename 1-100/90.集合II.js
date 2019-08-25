@@ -21,5 +21,7 @@ var subsetsWithDup = function (nums) {
             path.push(nums[u]);
         }
         for (let i = 0; i <= k; i++) path.pop();
-    }
 };
+
+
+subsetsWithDup([4,4,4,1,4]);
