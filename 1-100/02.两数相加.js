@@ -1,19 +1,19 @@
-function ListNode(val) {
-    this.val = val;
-    this.next = null;
-}
-function getRe(i) {
-    const listNode = new ListNode(c[i]);
-    if (c[i + 1] || c[i + 1] === 0) {
-        listNode.next = getRe(i + 1);
-    }
-    return listNode;
-}
-let c = [2, 3, 4];
-let list1 = getRe(0);
-debugger;
-c = [5, 6, 4];
-let list2 = getRe(0);
+// function ListNode(val) {
+//     this.val = val;
+//     this.next = null;
+// }
+// function getRe(i) {
+//     const listNode = new ListNode(c[i]);
+//     if (c[i + 1] || c[i + 1] === 0) {
+//         listNode.next = getRe(i + 1);
+//     }
+//     return listNode;
+// }
+// let c = [2, 3, 4];
+// let list1 = getRe(0);
+// debugger;
+// c = [5, 6, 4];
+// let list2 = getRe(0);
 
 var addTwoNumbers = function (list1, list2) {
     let v1, v2, sum;
