@@ -1,16 +1,13 @@
 var longestPalindrome = function (s) {
-    let res = '';
-    for (let i = 0; i < s.length; i++) {
-        for (let j = i, k = i; j >= 0 && k < s.length && s[j] === s[k]; j-- , k++) {
-            if (res.length < k - j + 1) res = s.substr(j, k - j + 1);
-        }
-        for (let j = i, k = i + 1; j >= 0 && k < s.length && s[j] === s[k]; j-- , k++) {
-            if (res.length < k - j + 1) res = s.substr(j, k - j + 1);
-        }
+    let ans = '', n = s.length;
+    for (let i = 0; i < n; i++) {
+        for (let j = i, k = i; j >= 0 && k < n && s[j] === s[k]; j-- , k++)
+            if (ans.length < k - j + 1) ans = s.substr(j, k - j + 1);
+        for (let j = i, k = i + 1; j >= 0 && k < n && s[j] === s[k]; j-- , k++)
+            if (ans.length < k - j + 1) ans = s.substr(j, k - j + 1);
     }
-    return res;
+    return ans;
 };
-
 
 console.log(longestPalindrome("dbbbd"));
 // 踩坑1: size在leetcode中是个关键字
