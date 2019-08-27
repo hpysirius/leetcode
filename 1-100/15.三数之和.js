@@ -1,33 +1,33 @@
-const threeSum = function (nums) {
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function (nums) {
+  let n = nums.length;
+  let ans = [];
   nums.sort((a, b) => a - b);
-  const res = [];
-  const len = nums.length;
-  for (let i = 0; i < len - 2; i++) {
-    if (i > 0 && nums[i] === nums[i - 1]) {
-      continue;
-    }
-    let sum = 0;
-    let begin = i + 1;
-    let end = len - 1;
-    while (begin < end) {
-      sum = nums[i] + nums[begin] + nums[end];
+  for (let i = 0; i < n - 2; i++) {
+    let m = i + 1;
+    let j = n - 1;
+    if (i > 0 && nums[i] === nums[i - 1]) continue;
+    while (m < j) {
+      let sum = nums[i] + nums[m] + nums[j];
       if (sum === 0) {
-        res.push([nums[i], nums[begin], nums[end]]);
-        while (nums[begin] === nums[begin + 1]) begin++;
-        while (nums[end] === nums[end - 1]) end--;
-        begin++;
-        end--;
-      } else if (sum < 0) {
-        while (nums[begin] === nums[begin + 1]) begin++;
-        begin++;
+        ans.push([nums[i], nums[m], nums[j]]);
+        while (nums[j] === nums[j - 1]) j--;
+        j--;
+        while (nums[m] === nums[m + 1]) m++;
+        m++;
+      } else if (sum > 0) {
+        while (nums[j] === nums[j - 1]) j--;
+        j--;
       } else {
-        while (nums[end] === nums[end - 1]) end--;
-        end--;
+        while (nums[m] === nums[m + 1]) m++;
+        m++;
       }
     }
   }
-  return res;
+  return ans;
 };
 
-const res = threeSum([1, -1, -1, 0]);
-console.log(res);
+console.log(threeSum([0, 0, 0]))
