@@ -1,5 +1,5 @@
 var addBinary = function (a, b) {
-    let carry = 0, ans = [];
+    let carry = 0, ans = '';
     let m = a.length, n = b.length;
     while (m > n) {
         b = '0' + b;
@@ -15,10 +15,10 @@ var addBinary = function (a, b) {
             sum += +a[m];
             sum += +b[m];
         }
-        ans.unshift(sum % 2);
+        ans = sum % 2 + ans;
         carry = sum >> 1;
     }
-    return ans.join('');
+    return ans;
 };
 
 console.log(addBinary('11', '1'))
