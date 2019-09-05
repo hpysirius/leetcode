@@ -1,4 +1,6 @@
 /**
+ * 162. 寻找峰值
+ * 二分模板
  * @param {number[]} nums
  * @return {number}
  */
