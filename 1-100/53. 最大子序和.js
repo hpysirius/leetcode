@@ -4,12 +4,14 @@
 // 如果 sum <= 0，则说明 sum 对结果无增益效果，需要舍弃，则 sum 直接更新为当前遍历数字
 // 每次比较 sum 和 ans的大小，将最大值置为ans，遍历结束返回结果
 // 时间复杂度：O(n)
-const maxSubArray = nums => {
-    let ans = nums[0];
-    let sum = 0;
-    for(let num of nums){
-        sum > 0 ? sum += num : sum = num;
-        ans = Math.max(ans, sum);
+// f[i] = Math.max(f[i - 1], 0) + nums[i]
+var maxSubArray = nums => {
+    let ans = Number.MIN_SAFE_INTEGER, last = 0;
+    for(let i = 0; i < nums.length; i++){
+        let now = Math.max(last, 0) + nums[i];
+        ans = Math.max(ans, now);
+        last = now;
     }
     return ans;
 }
+
